@@ -1,0 +1,9 @@
+by default the motherboard has one iommu group for the chipset devices, which includes the m.2 slot
+add the below to /etc/default/grub
+
+run "nano /etc/default/grub"
+at "GRUB_CMDLINE_LINUX_DEFAULT="
+replace "quiet" with "quiet amd_iommu=on"
+add "pcie_acs_override=downstream,multifunction"
+
+run "update-grub"
